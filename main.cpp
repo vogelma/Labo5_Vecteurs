@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------------
 Nom du fichier : main.cpp
-Auteur(s)      : Maëlle Vogel
-Date creation  : <jj.mm.aaaa>
+Auteur(s)      : Maëlle Vogel et Tobie Praz
+Date creation  : 01.12.2020
 Description    : <à compléter>
 Remarque(s)    : <à compléter>
 Compilateur    : Mingw-w64 g++ 8.1.0
