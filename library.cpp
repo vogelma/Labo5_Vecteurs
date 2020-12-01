@@ -56,15 +56,23 @@ bool isSquare(const IntMatrix &matrix){
 bool isRegular(const IntMatrix &matrix){
 
 }
+
 //------------------------------------------------------------------
 
 int maxCol(const IntMatrix &matrix){
 
 }
 
-IntVector lineSum(const IntMatrix &matrix){
-IntVector vRes;
 
+int sum(const IntVector &v) {
+    return accumulate(v.begin(), v.end(), 0);
+}
+
+IntVector lineSum(const IntMatrix &matrix) {
+    IntVector result;
+    transform(matrix.begin(), matrix.end(), result.begin(), sum);
+
+    return result;
 }
 
 IntVector vectMinSum(const IntMatrix &matrix){
@@ -77,21 +85,38 @@ void shuffleMatrix(IntMatrix &matrix){
     shuffle (matrix.begin(), matrix.end(), default_random_engine(seed));
 }
 
+
+bool comparator(IntVector a, IntVector b) {
+    return max_element(a.begin(), a.end()) < max_element(b.begin(), b.end());
+}
+
+void sortMatrix(IntMatrix &matrix){
+    sort(matrix.begin(), matrix.end(), comparator);
+}
+
 //----------------------------------------------------------------
 //Left to right
 bool diagLRSum(const IntMatrix &matrix, int &result){
-    for (size_t i=0; i < matrix.size(); ++i) {
-        result += matrix[i][matrix.size() - i - 1];
+    if(isSquare(matrix)) {
+        for (size_t i = 0; i < matrix.size(); ++i) {
+            result += matrix[i][matrix.size() - i - 1];
+        }
+
+        return true;
     }
-    return true;
+    return false;
 }
 
 //Right to left
 bool diagRLSum(const IntMatrix &matrix, int &result){
-    for (size_t i=0; i < matrix.size(); ++i) {
-        result += matrix[i][i];
+    if(isSquare(matrix)) {
+        for (size_t i = 0; i < matrix.size(); ++i) {
+            result += matrix[i][i];
+        }
+
+        return true;
     }
-    return true;
+    return false;
 }
 
 
