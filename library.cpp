@@ -23,7 +23,7 @@ using namespace std;
 //-------------------------------------------------------------------
 //    VECTOR 1D or 2D
 //-------------------------------------------------------------------
-ostream& operator << (ostream& os, const VecteurVector& v) {
+ostream& operator << (ostream &os, const IntVector &v) {
     cout << "(";
     for (size_t i=0; i < v.size(); ++i) {
         if (i)
@@ -35,7 +35,7 @@ ostream& operator << (ostream& os, const VecteurVector& v) {
 }
 
 //-------------------------------------------------------------------
-ostream& operator << (ostream& os, const MatriceVector& m) {
+ostream& operator << (ostream &os, const IntMatrix &m) {
     cout << "[";
     for (size_t i=0; i < m.size(); ++i) {
         if (i)

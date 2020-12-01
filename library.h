@@ -10,11 +10,28 @@
 
 using namespace std;
 
-using VecteurVector = vector<int>;
-using MatriceVector = vector<VecteurVector>;
+using IntVector = vector<int>;
+using IntMatrix = vector<IntVector>;
 
-ostream& operator << (ostream& os, const VecteurVector& v);
-ostream& operator << (ostream& os, const MatriceVector& m);
+ostream& operator << (ostream &os, const IntVector &v);
+ostream& operator << (ostream &os, const IntMatrix &m);
 
+bool isSquare(const IntMatrix &matrix);
+
+bool isRegular(const IntMatrix &matrix);
+
+int maxCol(const IntMatrix &matrix);
+
+int lineSum(const IntMatrix &matrix);
+
+IntVector vectMinSum(const IntMatrix &matrix);
+
+void shuffleIntMatrix(IntMatrix &matrix);
+
+void sortIntMatrix(IntMatrix &matrix);
+
+bool diagLRSum(const IntMatrix &matrix, int &result);
+
+bool diagRLSum(const IntMatrix &matrix, int &result);
 
 #endif //LABO5_VECTEURS_LIBRARY_H
