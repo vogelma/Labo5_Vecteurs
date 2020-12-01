@@ -14,8 +14,10 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 #include <ctime>
 #include <cctype>
 #include <cassert>
-#include <vector>
 #include <algorithm>
+#include <numeric>
+#include <chrono>
+#include <random>
 
 using namespace std;
 
@@ -53,6 +55,26 @@ bool isSquare(const IntMatrix &matrix){
 
 bool isRegular(const IntMatrix &matrix){
 
+}
+//------------------------------------------------------------------
+
+int maxCol(const IntMatrix &matrix){
+
+}
+
+IntVector lineSum(const IntMatrix &matrix){
+IntVector vRes;
+
+}
+
+IntVector vectMinSum(const IntMatrix &matrix){
+
+}
+
+//----------------------------------------------------
+void shuffleMatrix(IntMatrix &matrix){
+    unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+    shuffle (matrix.begin(), matrix.end(), default_random_engine(seed));
 }
 
 //----------------------------------------------------------------
