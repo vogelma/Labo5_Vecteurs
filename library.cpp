@@ -45,3 +45,31 @@ ostream& operator << (ostream &os, const IntMatrix &m) {
     cout << "]";
     return os;
 }
+//----------------------------------------------------------------
+
+bool isSquare(const IntMatrix &matrix){
+
+}
+
+bool isRegular(const IntMatrix &matrix){
+
+}
+
+//----------------------------------------------------------------
+//Left to right
+bool diagLRSum(const IntMatrix &matrix, int &result){
+    for (size_t i=0; i < matrix.size(); ++i) {
+        result += matrix[i][matrix.size() - i - 1];
+    }
+    return true;
+}
+
+//Right to left
+bool diagRLSum(const IntMatrix &matrix, int &result){
+    for (size_t i=0; i < matrix.size(); ++i) {
+        result += matrix[i][i];
+    }
+    return true;
+}
+
+

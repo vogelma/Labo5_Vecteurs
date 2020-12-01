@@ -4,7 +4,6 @@
 
 #ifndef LABO5_VECTEURS_LIBRARY_H
 #define LABO5_VECTEURS_LIBRARY_H
-
 #include <string>
 #include <vector>
 
@@ -22,16 +21,18 @@ bool isRegular(const IntMatrix &matrix);
 
 int maxCol(const IntMatrix &matrix);
 
-int lineSum(const IntMatrix &matrix);
+IntVector lineSum(const IntMatrix &matrix);
 
 IntVector vectMinSum(const IntMatrix &matrix);
 
-void shuffleIntMatrix(IntMatrix &matrix);
+void shuffleMatrix(IntMatrix &matrix);
 
-void sortIntMatrix(IntMatrix &matrix);
+void sortMatrix(IntMatrix &matrix);
 
+//Left to right
 bool diagLRSum(const IntMatrix &matrix, int &result);
 
+//Right to left
 bool diagRLSum(const IntMatrix &matrix, int &result);
 
 #endif //LABO5_VECTEURS_LIBRARY_H
