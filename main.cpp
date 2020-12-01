@@ -10,6 +10,7 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 #include <iostream>
 #include <limits>
 #include <iomanip>
+#include "library.h"
 
 #define EMPTY_BUFFER cin.ignore(numeric_limits<streamsize>::max(), '\n');
 using namespace std;
