@@ -32,55 +32,62 @@ using namespace std;
 //-------------------------------------------------------------------
 //    VECTOR 1D or 2D
 //-------------------------------------------------------------------
+string commaJoin_int(const string &a, int b) {
+    return a + ", " + to_string(b);
+}
+
+string commaJoin_string(const string &a, const string &b) {
+    return a + ", " + b;
+}
+
+string vecToString(const IntVector &v) {
+    string vec;
+    if(!v.empty()) vec = accumulate(next(v.begin()), v.end(), to_string(v[0]), commaJoin_int);
+    return "(" + vec + ")";
+}
+
 ostream &operator<<(ostream &os, const IntVector &v) {
-    cout << "(";
-    for (size_t i = 0; i < v.size(); ++i) {
-        if (i)
-            os << ", ";
-        os << v[i];
-    }
-    cout << ")";
+    cout << vecToString(v);
     return os;
 }
 
 ostream &operator<<(ostream &os, const IntMatrix &m) {
-    cout << "[";
-    for (size_t i = 0; i < m.size(); ++i) {
-        if (i)
-            os << ", ";
-        os << m[i];
-    }
-    cout << "]";
+    vector<string> strings(m.size());
+    transform(m.begin(), m.end(), strings.begin(), vecToString);
+    string mat;
+    if(!strings.empty()) mat = accumulate(next(strings.begin()), strings.end(), strings[0], commaJoin_string);
+
+    cout << "[" << mat << "]";
     return os;
 }
 
 //----------------------------------------------------------------
-bool isSquare(const IntMatrix &matrix) {
-    int size = matrix.size();
-    for (IntVector e : matrix) {
-        if (e.size() != size)
-            return false;
-    }
-    return true;
-}
-
-bool isRegular(const IntMatrix &matrix) {
-    if (matrix.size()) {
-        int size = matrix[0].size();
-
-        for (IntVector e : matrix) {
-            if (e.size() != size)
-                return false;
-        }
-    }
-    return true;
-}
-
-//------------------------------------------------------------------
 int vecSize(const IntVector &v) {
     return v.size();
 }
 
+bool isRegular(const IntMatrix &matrix) {
+    auto size = matrix.size();
+    if(size) {
+        IntVector sizes(size);
+        transform(matrix.begin(), matrix.end(), sizes.begin(), vecSize);
+
+        return count(sizes.begin(), sizes.end(), sizes[0]) == size;
+    }
+
+    return true;
+}
+
+bool isSquare(const IntMatrix &matrix) {
+    auto size = matrix.size();
+    if(size) {
+        return isRegular(matrix) && matrix[0].size() == size;
+    }
+
+    return true;
+}
+
+//------------------------------------------------------------------
 int maxCol(const IntMatrix &matrix) {
     int e = matrix.size();
     IntVector sizes(e);
