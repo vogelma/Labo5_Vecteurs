@@ -58,10 +58,15 @@ bool isRegular(const IntMatrix &matrix){
 }
 
 //------------------------------------------------------------------
+int vecSize(const IntVector &v) {
+    return size(v);
+}
 
 int maxCol(const IntMatrix &matrix){
     IntVector result;
-    //transform(matrix.begin(), matrix.end(), result.begin(), size);
+    transform(matrix.begin(), matrix.end(), result.begin(), vecSize);
+
+    return *min_element(result.begin(), result.end());
 }
 
 
