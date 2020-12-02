@@ -13,7 +13,6 @@ Compilateur    : Mingw-w64 g++ 8.1.0
 #include <limits>
 #include <ctime>
 #include <cctype>
-#include <cassert>
 #include <algorithm>
 #include <numeric>
 #include <chrono>
@@ -51,22 +50,42 @@ ostream& operator << (ostream &os, const IntMatrix &m) {
 
 bool isSquare(const IntMatrix &matrix){
 
+    //nbre ligne
+    int size = matrix.size();
+
+    for(IntVector e : matrix){
+        if(e.size() != size)
+            return false;
+    }
+
+    return true;
 }
 
 bool isRegular(const IntMatrix &matrix){
 
+    if(matrix.size()) {
+        int size = matrix[0].size();
+
+        for (IntVector e : matrix) {
+            if (e.size() != size)
+                return false;
+        }
+    }
+
+    return true;
 }
 
 //------------------------------------------------------------------
 int vecSize(const IntVector &v) {
-    return size(v);
+    return v.size();
 }
 
 int maxCol(const IntMatrix &matrix){
-    IntVector result;
-    transform(matrix.begin(), matrix.end(), result.begin(), vecSize);
+    int e = matrix.size();
+    IntVector sizes(e);
+    transform(matrix.begin(), matrix.end(), sizes.begin(), vecSize);
 
-    return *min_element(result.begin(), result.end());
+    return *max_element(sizes.begin(), sizes.end());
 }
 
 
@@ -75,7 +94,8 @@ int sum(const IntVector &v) {
 }
 
 IntVector lineSum(const IntMatrix &matrix) {
-    IntVector result;
+    int e = matrix.size();
+    IntVector result(e);
     transform(matrix.begin(), matrix.end(), result.begin(), sum);
 
     return result;
@@ -98,7 +118,7 @@ void shuffleMatrix(IntMatrix &matrix){
 
 
 bool comparator(IntVector a, IntVector b) {
-    return max_element(a.begin(), a.end()) < max_element(b.begin(), b.end());
+    return max_element(a.begin(), a.end()) > max_element(b.begin(), b.end());
 }
 
 void sortMatrix(IntMatrix &matrix){
@@ -106,8 +126,9 @@ void sortMatrix(IntMatrix &matrix){
 }
 
 //----------------------------------------------------------------
-//Left to right
-bool diagLRSum(const IntMatrix &matrix, int &result){
+
+bool diagRLSum(const IntMatrix &matrix, int &result){
+    result = 0;
     if(isSquare(matrix)) {
         for (size_t i = 0; i < matrix.size(); ++i) {
             result += matrix[i][matrix.size() - i - 1];
@@ -118,8 +139,9 @@ bool diagLRSum(const IntMatrix &matrix, int &result){
     return false;
 }
 
-//Right to left
-bool diagRLSum(const IntMatrix &matrix, int &result){
+
+bool diagLRSum(const IntMatrix &matrix, int &result){
+    result = 0;
     if(isSquare(matrix)) {
         for (size_t i = 0; i < matrix.size(); ++i) {
             result += matrix[i][i];
