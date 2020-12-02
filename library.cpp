@@ -1,17 +1,25 @@
 /*-----------------------------------------------------------------------------------
-Nom du fichier : main.cpp
-Auteur(s)      : Maëlle Vogel et Tobie Praz
-Date creation  : 01.12.2020
-Description    : <à compléter>
-Remarque(s)    : <à compléter>
-Compilateur    : Mingw-w64 g++ 8.1.0
+Filename       : main.cpp
+Authors        : Maëlle Vogel and Tobie Praz
+Creation date  : 01.12.2020
+Description    : This library provides functions to:
+                  - display a vector
+                  - display a matrix
+                  - check if a matrix is a square
+                  - check if a matrix is regular
+                  - return the size of the longest vector
+                  - return a vector containing the sum of each vector
+                  - return the vector with the smallest sum
+                  - shuffle the vector order in the matrix
+                  - sort the matrix by the biggest number in a vector
+                  - sum the right to left diagonal /
+                  - sum the left to right diagonal \
+Compiler       : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------*/
 #include "library.h"
 
 #include <iostream>
 #include <string>
-#include <limits>
-#include <ctime>
 #include <cctype>
 #include <algorithm>
 #include <numeric>
@@ -81,7 +89,7 @@ int maxCol(const IntMatrix &matrix) {
     return *max_element(sizes.begin(), sizes.end());
 }
 
-
+//-----------------------------------------------------------------
 int sum(const IntVector &v) {
     return accumulate(v.begin(), v.end(), 0);
 }
