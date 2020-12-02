@@ -60,7 +60,8 @@ bool isRegular(const IntMatrix &matrix){
 //------------------------------------------------------------------
 
 int maxCol(const IntMatrix &matrix){
-
+    IntVector result;
+    //transform(matrix.begin(), matrix.end(), result.begin(), size);
 }
 
 
@@ -76,6 +77,11 @@ IntVector lineSum(const IntMatrix &matrix) {
 }
 
 IntVector vectMinSum(const IntMatrix &matrix){
+
+    IntVector sum = lineSum(matrix);
+    int i = min_element(sum.begin(), sum.end()) - sum.begin();
+
+    return matrix[i];
 
 }
 
