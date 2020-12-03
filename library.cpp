@@ -79,18 +79,12 @@ bool isRegular(const IntMatrix &matrix) {
 }
 
 bool isSquare(const IntMatrix &matrix) {
-    auto size = matrix.size();
-    if(size) {
-        return isRegular(matrix) && matrix[0].size() == size;
-    }
-
-    return true;
+    return matrix.empty() || isRegular(matrix) && matrix[0].size() == matrix.size();
 }
 
 //------------------------------------------------------------------
 int maxCol(const IntMatrix &matrix) {
-    int e = matrix.size();
-    IntVector sizes(e);
+    IntVector sizes(matrix.size());
     transform(matrix.begin(), matrix.end(), sizes.begin(), vecSize);
 
     return *max_element(sizes.begin(), sizes.end());
@@ -102,8 +96,7 @@ int sum(const IntVector &v) {
 }
 
 IntVector lineSum(const IntMatrix &matrix) {
-    int e = matrix.size();
-    IntVector result(e);
+    IntVector result(matrix.size());
     transform(matrix.begin(), matrix.end(), result.begin(), sum);
 
     return result;
