@@ -20,7 +20,6 @@ Compiler       : Mingw-w64 g++ 8.1.0
 #include <cstdlib>
 #include <iostream>
 #include <limits>
-#include <iomanip>
 #include "library.h"
 
 using namespace std;
@@ -64,28 +63,28 @@ int main() {
     cout << "-------------------------SHUFFLE-A-MATRIX---------------------------------------------" << endl;
     cout << matrix1 << " before shuffle" << endl;
     shuffleMatrix(matrix1);
-    cout << matrix1 << " after shuffle" << endl;
+    cout << matrix1 << " after shuffle"  << endl;
     cout << matrix2 << " before shuffle" << endl;
     shuffleMatrix(matrix2);
-    cout << matrix2 << " after shuffle" << endl;
+    cout << matrix2 << " after shuffle"  << endl;
 
     cout << "-------------------------SORT-BY-BIGGEST-NUMBER-IN-VECTOR-----------------------------" << endl;
     cout << matrix1 << " before sort" << endl;
     sortMatrix(matrix1);
-    cout << matrix1 << " after sort" << endl;
+    cout << matrix1 << " after sort"  << endl;
 
     cout << "-------------------------DIAGONAL-----------------------------------------------------" << endl;
     int resultLR1;
-    cout << matrix2 << " diagonal left to right exist: " << diagLRSum(matrix2, resultLR1)
-         << ", result " << resultLR1 << endl;
+    cout << matrix2 << " left to right diagonal exists: " << diagLRSum(matrix2, resultLR1)
+         << ", result: " << resultLR1 << endl;
 
     int resultRL1;
-    cout << matrix2 << " diagonal right to left exist: " << diagRLSum(matrix2, resultRL1)
-         << ", result " << resultRL1 << endl;
+    cout << matrix2 << " right to left diagonal exists: " << diagRLSum(matrix2, resultRL1)
+         << ", result: " << resultRL1 << endl;
 
     int resultLR2;
-    cout << matrix1 << " diagonal left to right exist: " << diagLRSum(matrix1, resultLR2)
-         << ", result " << resultLR2 << endl;
+    cout << matrix1 << " left to right diagonal exists: " << diagLRSum(matrix1, resultLR2)
+         << ", result: " << resultLR2 << endl;
     cout << endl;
 
     cout << "ENTER FOR EXIT";

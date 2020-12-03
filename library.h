@@ -14,72 +14,68 @@ ostream &operator<<(ostream &os, const IntMatrix &m);
 
 /**
  * Is the matrix a square ? (N x N)
- * @param matrix
- * @return bool
- *         true if the matrix is a square
+ * @param matrix: the matrix to analyse
+ * @return True if the matrix is a square,
  *         false if not
  */
 bool isSquare(const IntMatrix &matrix);
 
 /**
  * Is the matrix regular ? (All lines same size)
- * @param matrix
- * @return bool
- *         true if the matrix is regular
+ * @param matrix: the matrix to check
+ * @return True if the matrix is regular,
  *         false if not
  */
 bool isRegular(const IntMatrix &matrix);
 
 /**
- * Return the size of the longest vector of a matrix
- * @param matrix
- * @return int: Longest line size
+ * Returns the size of the longest vector of a matrix
+ * @param matrix: the matrix to analyse
+ * @return Longest line size
  */
 int maxCol(const IntMatrix &matrix);
 
 /**
  * Returns a vector containing the sum of the values of each lines.
- * @param IntMatrix: matrix containing the vectors to sum
- * @return IntVector: Vector of all line sums
+ * @param matrix: the matrix containing the vectors to sum
+ * @return Vector of all line sums
  */
 IntVector lineSum(const IntMatrix &matrix);
 
 /**
  * Returns the vector of a matrix with the lowest sum of values.
  * If several vectors have the same sum, the function returns the one with the lowest index
- * @param IntMatrix: the matrix to analyse
- * @return IntVector: Line with smallest sum
+ * @param matrix: the matrix to analyse
+ * @return Line with smallest sum
  */
 IntVector vectMinSum(const IntMatrix &matrix);
 
 /**
- * Shuffle the vectors of a matrix without changing the vectors
- * @param IntMatrix: the matrix to shuffle
+ * Shuffles the vectors of a matrix without changing the vectors
+ * @param matrix: the matrix to shuffle
  */
 void shuffleMatrix(IntMatrix &matrix);
 
 /**
- * Sort a matrix (reverse order of the biggest line element)
- * @param IntMatrix: the matrix to sort
+ * Sorts a matrix (reverse order of the biggest line element)
+ * @param matrix: the matrix to sort
  */
 void sortMatrix(IntMatrix &matrix);
 
 /**
- * Compute the left to right diagonal sum and return true if the matrix is valid (is square)
- * @param IntMatrix: the matrix to sum the diagonal
- * @param int: result where left to right diagonal sum will be stored
- * @return bool
- *         true if the diagonal exists
+ * Computes the left to right diagonal sum and returns true if the matrix is valid (is square)
+ * @param matrix: the matrix to sum the diagonal
+ * @param result: where left to right diagonal sum will be stored
+ * @return True if the diagonal exists,
  *         false if not
  */
 bool diagLRSum(const IntMatrix &matrix, int &result);
 
 /**
- * Compute the right to left diagonal sum and return true if the matrix is valid (is square)
- * @param IntMatrix: the matrix to sum the diagonal
- * @param int: result where right to left diagonal sum will be stored
- * @return bool
- *         true if the diagonal exists
+ * Computes the right to left diagonal sum and returns true if the matrix is valid (is square)
+ * @param matrix: the matrix to sum the diagonal
+ * @param result: where right to left diagonal sum will be stored
+ * @return True if the diagonal exists,
  *         false if not
  */
 bool diagRLSum(const IntMatrix &matrix, int &result);
