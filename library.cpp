@@ -29,11 +29,11 @@ Compiler       : Mingw-w64 g++ 8.1.0
 using namespace std;
 
 //Utility functions
-string commaJoin_int(const string &a, int b) {
+string commaJoinInt(const string &a, int b) {
     return a + ", " + to_string(b);
 }
 
-string commaJoin_string(const string &a, const string &b) {
+string commaJoinString(const string &a, const string &b) {
     return a + ", " + b;
 }
 
@@ -41,7 +41,7 @@ string vecToString(const IntVector &v) {
     string vec;
     if(!v.empty()) {
         //Join vector elements with ", "
-        vec = accumulate(next(v.begin()), v.end(), to_string(v[0]), commaJoin_int);
+        vec = accumulate(next(v.begin()), v.end(), to_string(v[0]), commaJoinInt);
     }
     return "(" + vec + ")";
 }
@@ -54,7 +54,7 @@ int sum(const IntVector &v) {
     return accumulate(v.begin(), v.end(), 0);
 }
 
-bool comparator(IntVector a, IntVector b) {
+bool comparator(const IntVector &a, const IntVector &b) {
     return max_element(a.begin(), a.end()) > max_element(b.begin(), b.end());
 }
 
@@ -72,7 +72,7 @@ ostream &operator<<(ostream &os, const IntMatrix &m) {
     string mat;
     if(!strings.empty()) {
         //Join matrix lines with ", "
-        mat = accumulate(next(strings.begin()), strings.end(), strings[0], commaJoin_string);
+        mat = accumulate(next(strings.begin()), strings.end(), strings[0], commaJoinString);
     }
 
     cout << "[" << mat << "]";
