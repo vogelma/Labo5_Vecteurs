@@ -39,28 +39,28 @@ int main() {
                          {4,  43, 1}};
 
     cout << boolalpha;
-    cout << "-------------------------SQUARE-------------------------------------------------------" << endl;
+    cout << "-------------------------SQUARE------------------------------------------" << endl;
     cout << matrix1 << " is square: " << isSquare(matrix1) << endl;
     cout << matrix2 << " is square: " << isSquare(matrix2) << endl;
 
-    cout << "-------------------------REGULAR------------------------------------------------------" << endl;
+    cout << "-------------------------REGULAR-----------------------------------------" << endl;
     cout << matrix1 << " is regular: " << isRegular(matrix1) << endl;
     cout << matrix2 << " is regular: " << isRegular(matrix2) << endl;
     cout << matrix3 << " is regular: " << isRegular(matrix3) << endl;
 
-    cout << "-------------------------LONGEST VECTOR-----------------------------------------------" << endl;
+    cout << "-------------------------LONGEST VECTOR----------------------------------" << endl;
     cout << matrix2 << " max vector size: " << maxCol(matrix2) << endl;
     cout << matrix3 << " max vector size: " << maxCol(matrix3) << endl;
 
-    cout << "-------------------------SUM-OF-EACH-VECTOR-------------------------------------------" << endl;
+    cout << "-------------------------SUM-OF-EACH-VECTOR------------------------------" << endl;
     cout << matrix2 << " line sum: " << lineSum(matrix2) << endl;
     cout << matrix3 << " line sum: " << lineSum(matrix3) << endl;
 
-    cout << "-------------------------SMALLEST-VECTOR-SUM------------------------------------------" << endl;
+    cout << "-------------------------SMALLEST-VECTOR-SUM-----------------------------" << endl;
     cout << matrix2 << " vector with min line sum: " << vectMinSum(matrix2) << endl;
     cout << matrix3 << " vector with min line sum: " << vectMinSum(matrix3) << endl;
 
-    cout << "-------------------------SHUFFLE-A-MATRIX---------------------------------------------" << endl;
+    cout << "-------------------------SHUFFLE-A-MATRIX--------------------------------" << endl;
     cout << matrix1 << " before shuffle" << endl;
     shuffleMatrix(matrix1);
     cout << matrix1 << " after shuffle"  << endl;
@@ -68,12 +68,12 @@ int main() {
     shuffleMatrix(matrix2);
     cout << matrix2 << " after shuffle"  << endl;
 
-    cout << "-------------------------SORT-BY-BIGGEST-NUMBER-IN-VECTOR-----------------------------" << endl;
+    cout << "-------------------------SORT-BY-BIGGEST-NUMBER-IN-VECTOR----------------" << endl;
     cout << matrix1 << " before sort" << endl;
     sortMatrix(matrix1);
     cout << matrix1 << " after sort"  << endl;
 
-    cout << "-------------------------DIAGONAL-----------------------------------------------------" << endl;
+    cout << "-------------------------DIAGONAL----------------------------------------" << endl;
     int resultLR1;
     cout << matrix2 << " left to right diagonal exists: " << diagLRSum(matrix2, resultLR1)
          << ", result: " << resultLR1 << endl;
